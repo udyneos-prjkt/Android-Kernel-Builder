@@ -5,7 +5,7 @@
       "branch": "4.19.191_mt6765_dev",
       "device": "CG65"
     },
-    "withKernelSU": true,
+    "withKernelSU": false,
     "toolchains": [
       {
         "repo": "https://android.googlesource.com/platform/prebuilts/gas/linux-x86",
@@ -13,8 +13,8 @@
         "name": "gas"
       },
       {
-        "repo": "https://gitlab.com/ThankYouMario/android_prebuilts_clang-standalone/",
-        "branch": "11",
+        "repo": "https://github.com/1ndev-ui/android_prebuilts_clang_host_linux-x86_clang-6443078",
+        "branch": "11.0.1",
         "name": "clang"
       }
     ],
