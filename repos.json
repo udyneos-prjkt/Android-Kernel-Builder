@@ -5,6 +5,11 @@
       "branch": "4.19.191_mt6765_dev",
       "device": "k65v1_64_bsp"
     },
+    "anykernelSource": {
+        "repo": "https://github.com/1ndev-ui/AnyKernel3"
+        "branch": "dev"
+        "name": "Anykernel3"
+    },
     "withKernelSU": true,
     "toolchains": [
       {
