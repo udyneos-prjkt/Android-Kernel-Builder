@@ -173,6 +173,11 @@ jobs:
             cp ${{ env.kernelDir }}/${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/dtbo.img AnyKernel3/dtbo.img
           fi
 
+      - name: "🖤 Upload AnyKernel3 package"
+        uses: actions/upload-artifact@v4
+        with:
+          name: output_kernel
+          path: ./${{ env.kernelDir }}/AnyKernel3/*
 
       - name: "💛 Upload Image"
         uses: actions/upload-artifact@v3
