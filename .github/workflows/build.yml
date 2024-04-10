@@ -163,23 +163,23 @@ jobs:
         working-directory: ./${{ env.kernelDir }}
         run: |
           git clone --depth=1 $ANYKERNEL_SOURCE -b $ANYKERNEL_SOURCE_BRANCH $ANYKERNEL_NAME && rm -rf $ANYKERNEL_NAME/.git $ANYKERNEL_NAME/.github $ANYKERNEL_NAME/LICENSE $ANYKERNEL_NAME/README.md
-          if [[ -f $kernelDir/$OUT_DIR/arch/$ARCH/boot/Image.gz-dtb ]]; then
-            cp $kernelDir/$OUT_DIR/arch/$ARCH/boot/Image.gz-dtb $ANYKERNEL_NAME/Image.gz-dtb
-          elif [[ -f $kernelDir/$OUT_DIR/arch/$ARCH/boot/Image-dtb ]]; then
-            cp $kernelDir/$OUT_DIR/arch/$ARCH/boot/Image-dtb $ANYKERNEL_NAME/Image-dtb
-          elif [[ -f $kernelDir/$OUT_DIR/arch/$ARCH/boot/Image.gz ]]; then
-            cp $kernelDir/$OUT_DIR/arch/$ARCH/boot/Image.gz $ANYKERNEL_NAME/Image.gz
-          elif [[ -f $kernelDir/$OUT_DIR/arch/$ARCH/boot/Image ]]; then
-            cp $kernelDir/$OUT_DIR/arch/$ARCH/boot/Image $ANYKERNEL_NAME/Image
+          if [[ -f $OUT_DIR/arch/$ARCH/boot/Image.gz-dtb ]]; then
+            cp $OUT_DIR/arch/$ARCH/boot/Image.gz-dtb $ANYKERNEL_NAME/Image.gz-dtb
+          elif [[ -f $OUT_DIR/arch/$ARCH/boot/Image-dtb ]]; then
+            cp $OUT_DIR/arch/$ARCH/boot/Image-dtb $ANYKERNEL_NAME/Image-dtb
+          elif [[ -f $OUT_DIR/arch/$ARCH/boot/Image.gz ]]; then
+            cp $OUT_DIR/arch/$ARCH/boot/Image.gz $ANYKERNEL_NAME/Image.gz
+          elif [[ -f $OUT_DIR/arch/$ARCH/boot/Image ]]; then
+            cp $OUT_DIR/arch/$ARCH/boot/Image $ANYKERNEL_NAME/Image
           fi
-          if [ -f $kernelDir/$OUT_DIR/arch/$ARCH/boot/dtbo.img ]; then
-            cp $kernelDir/$OUT_DIR/arch/$ARCH/boot/dtbo.img $ANYKERNEL_NAME/dtbo.img
+          if [ -f $OUT_DIR/arch/$ARCH/boot/dtbo.img ]; then
+            cp $OUT_DIR/arch/$ARCH/boot/dtbo.img $ANYKERNEL_NAME/dtbo.img
           fi
 
       - name: "🖤 Upload AnyKernel3 package"
         uses: actions/upload-artifact@v4
         with:
-          name: output_kernel
+          name: AnyKernel3-(${{ env.kernelDevice }}-${{ env.kernelName }}-${{ env.kernelBranch }})
           path: ./${{ env.kernelDir }}/${{ env.ANYKERNEL_NAME }}/*
 
       - name: "💛 Upload Image"
