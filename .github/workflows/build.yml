@@ -163,25 +163,25 @@ jobs:
       - name: "📦 Package kernel with AnyKernel3"
         working-directory: ./${{ env.kernelDir }}
         run: |
-          git clone --depth=1 ${{ env.ANYKERNEL_SOURCE }} -b ${{ env.ANYKERNEL_SOURCE_BRANCH }} ${{ env.ANYKERNEL_NAME }} && rm -rf AnyKernel3/.git AnyKernel3/.github AnyKernel3/LICENSE AnyKernel3/README.md
-          if [[ -f ${{ env.kernelDir }}/${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/Image.gz-dtb ]]; then
-            cp ${{ env.kernelDir }}/${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/Image.gz-dtb AnyKernel3/Image.gz-dtb
-          elif [[ -f ${{ env.kernelDir }}/${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/Image-dtb ]]; then
-            cp ${{ env.kernelDir }}/${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/Image-dtb AnyKernel3/Image-dtb
-          elif [[ -f ${{ env.kernelDir }}/${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/Image.gz ]]; then
-            cp ${{ env.kernelDir }}/${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/Image.gz AnyKernel3/Image.gz
-          elif [[ -f ${{ env.kernelDir }}/${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/Image ]]; then
-            cp ${{ env.kernelDir }}/${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/Image AnyKernel3/Image
+          git clone --depth=1 $ANYKERNEL_SOURCE -b $ANYKERNEL_SOURCE_BRANCH $ANYKERNEL_NAME && rm -rf AnyKernel3/.git AnyKernel3/.github AnyKernel3/LICENSE AnyKernel3/README.md
+          if [[ -f $kernelDir/$OUT_DIR/arch/$ARCH/boot/Image.gz-dtb ]]; then
+            cp $kernelDir/$OUT_DIR/arch/$ARCH/boot/Image.gz-dtb AnyKernel3/Image.gz-dtb
+          elif [[ -f $kernelDir/$OUT_DIR/arch/$ARCH/boot/Image-dtb ]]; then
+            cp $kernelDir/$OUT_DIR/arch/$ARCH/boot/Image-dtb
+          elif [[ -f $kernelDir/$OUT_DIR/arch/$ARCH/boot/Image.gz ]]; then
+            cp $kernelDir/$OUT_DIR/arch/$ARCH/boot/Image.gz AnyKernel3/Image.gz
+          elif [[ -f $kernelDir/$OUT_DIR/arch/$ARCH/boot/Image ]]; then
+            cp $kernelDir/$OUT_DIR/arch/$ARCH/boot/Image AnyKernel3/Image
           fi
-          if [ -f ${{ env.kernelDir }}/${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/dtbo.img ]; then
-            cp ${{ env.kernelDir }}/${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/dtbo.img AnyKernel3/dtbo.img
+          if [ -f $kernelDir/$OUT_DIR/arch/$ARCH/boot/dtbo.img ]; then
+            cp $kernelDir/$OUT_DIR/arch/$ARCH/boot/dtbo.img AnyKernel3/dtbo.img
           fi
 
       - name: "🖤 Upload AnyKernel3 package"
         uses: actions/upload-artifact@v4
         with:
           name: output_kernel
-          path: ./${{ env.kernelDir }}/AnyKernel3/*
+          path: ./${{ env.kernelDir }}/$ {{ env.ANYKERNEL_NAME }}/*
 
       - name: "💛 Upload Image"
         uses: actions/upload-artifact@v3
