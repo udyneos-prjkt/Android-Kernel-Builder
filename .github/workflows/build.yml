@@ -156,7 +156,7 @@ jobs:
           make clean
           make ${args}
           
-      - name: Package kernel with AnyKernel3
+      - name: "📦 Package kernel with AnyKernel3"
         run: |
           git clone --depth=1 ${{ env.ANYKERNEL_SOURCE }} -b ${{ env.ANYKERNEL_SOURCE_BRANCH }} AnyKernel3 && rm -rf AnyKernel3/.git AnyKernel3/.github AnyKernel3/LICENSE AnyKernel3/README.md
           if [[ -f ${{ env.kernelDir }}/${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/Image.gz-dtb ]]; then
