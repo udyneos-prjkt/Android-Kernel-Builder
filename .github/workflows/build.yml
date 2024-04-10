@@ -180,7 +180,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: output_kernel
-          path: ./${{ env.kernelDir }}/$ {{ env.ANYKERNEL_NAME }}/*
+          path: ./${{ env.kernelDir }}/${{ env.ANYKERNEL_NAME }}/*
 
       - name: "💛 Upload Image"
         uses: actions/upload-artifact@v3
