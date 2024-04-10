@@ -42,6 +42,10 @@ jobs:
       kernelBranch: ${{ matrix.repos.kernelSource.branch }}
       kernelDevice: ${{ matrix.repos.kernelSource.device }}
 
+      ANYKERNEL_NAME: ${{ matrix.repos.anykernelSource.name }}
+      ANYKERNEL_SOURCE: ${{ matrix.repos.anykernelSource.repo }}
+      ANYKERNEL_SOURCE_BRANCH: ${{ matrix.repos.anykernelSource.branch }}
+
       DEFCONFIG_NAME: ${{ matrix.repos.kernelSource.device }}_defconfig
 
       withKernelSU: ${{ matrix.repos.withKernelSU }}
@@ -159,7 +163,7 @@ jobs:
       - name: "📦 Package kernel with AnyKernel3"
         working-directory: ./${{ env.kernelDir }}
         run: |
-          git clone --depth=1 ${{ env.ANYKERNEL_SOURCE }} -b ${{ env.ANYKERNEL_SOURCE_BRANCH }} AnyKernel3 && rm -rf AnyKernel3/.git AnyKernel3/.github AnyKernel3/LICENSE AnyKernel3/README.md
+          git clone --depth=1 ${{ env.ANYKERNEL_SOURCE }} -b ${{ env.ANYKERNEL_SOURCE_BRANCH }} ${{ env.ANYKERNEL_NAME }} && rm -rf AnyKernel3/.git AnyKernel3/.github AnyKernel3/LICENSE AnyKernel3/README.md
           if [[ -f ${{ env.kernelDir }}/${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/Image.gz-dtb ]]; then
             cp ${{ env.kernelDir }}/${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/Image.gz-dtb AnyKernel3/Image.gz-dtb
           elif [[ -f ${{ env.kernelDir }}/${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/Image-dtb ]]; then
