@@ -6,8 +6,8 @@
       "device": "k65v1_64_bsp"
     },
     "anykernelSource": {
-        "repo": "https://github.com/1ndev-ui/AnyKernel3"
-        "branch": "dev"
+        "repo": "https://github.com/1ndev-ui/AnyKernel3",
+        "branch": "dev",
         "name": "AnyKernel3"
     },
     "withKernelSU": true,
