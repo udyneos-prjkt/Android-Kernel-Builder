@@ -163,7 +163,7 @@ jobs:
       - name: "📦 Package kernel with AnyKernel3"
         working-directory: ./${{ env.kernelDir }}
         run: |
-          git clone --depth=1 $ANYKERNEL_SOURCE -b $ANYKERNEL_SOURCE_BRANCH $ANYKERNEL_NAME && rm -rf AnyKernel3/.git AnyKernel3/.github AnyKernel3/LICENSE AnyKernel3/README.md
+          git clone --depth=1 $ANYKERNEL_SOURCE -b $ANYKERNEL_SOURCE_BRANCH $ANYKERNEL_NAME && rm -rf $ANYKERNEL_NAME/.git $ANYKERNEL_NAME/.github $ANYKERNEL_NAME/LICENSE $ANYKERNEL_NAME/README.md
           if [[ -f $kernelDir/$OUT_DIR/arch/$ARCH/boot/Image.gz-dtb ]]; then
             cp $kernelDir/$OUT_DIR/arch/$ARCH/boot/Image.gz-dtb $ANYKERNEL_NAME/Image.gz-dtb
           elif [[ -f $kernelDir/$OUT_DIR/arch/$ARCH/boot/Image-dtb ]]; then
