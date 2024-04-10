@@ -157,7 +157,6 @@ jobs:
           args: ${{ steps.generate-args.outputs.args }}
         run: |
           echo "PATH Variable: $PATH"
-          make clean
           make ${args}
           
       - name: "📦 Package kernel with AnyKernel3"
