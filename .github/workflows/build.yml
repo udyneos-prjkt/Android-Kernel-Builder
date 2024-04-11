@@ -64,7 +64,7 @@ jobs:
           git clone --recursive --branch $kernelBranch $kernelRepo $kernelName --depth=1
 
       - name: "💫 Get toolchains"
-        working-directory: ./${{ env.kernelDir }}
+        working-directory: ./${{ env.kernelDir }}/${{ env.kernelName }}
         env:
           toolchains: "${{ toJSON(matrix.repos.toolchains) }}"
         run: |
