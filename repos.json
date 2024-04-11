@@ -29,14 +29,7 @@
       "CROSS_COMPILE_ARM32": "arm-linux-gnueabi-",
       "CROSS_COMPILE_COMPAT": "arm-linux-gnueabi-",
       "CLANG_TRIPLE": "aarch64-linux-gnu-",
-      "LD": "ld.lld",
-      "AR": "llvm-ar",
-      "NM": "llvm-nm",
-      "OBJCOPY": "llvm-objcopy",
-      "OBJDUMP": "llvm-objdump",
-      "READELF": "llvm-readelf",
-      "OBJSIZE": "llvm-size",
-      "STRIP": "llvm-strip",
+      "AR":
       "CC": "clang"
     }
   }
