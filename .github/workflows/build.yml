@@ -161,6 +161,8 @@ jobs:
           
       - name: "🌲 Create Device Tree Blob (DTB)"
         working-directory: ./${{ env.kernelDir }}/${{ env.kernalName }}
+        env:
+          args: ${{ steps.generate-args.outputs.args }}
         run: |
           make ${args} dtbs
           make ${args} dtbs_install
