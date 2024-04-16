@@ -160,7 +160,7 @@ jobs:
           make ${args} CONFIG_DEBUG_SECTION_MISMATCH=y
           
       - name: "🌲 Create Device Tree Blob (DTB)"
-        working-directory: ./${{ env.kernelDir }}/${{ env.kernalName }}
+        working-directory: ./${{ env.kernelDir }}/${{ env.kernelName }}
         env:
           args: ${{ steps.generate-args.outputs.args }}
         run: |
