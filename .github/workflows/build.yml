@@ -56,7 +56,7 @@ jobs:
       - name: "⭐ Install prerequisites"
         run: |
           sudo apt-get update
-          sudo apt-get install -y build-essential bc curl git zip ftp gcc-aarch64-linux-gnu gcc-arm-linux-gnueabi libssl-dev lftp zstd wget libfl-dev python2 python3 libarchive-tools
+          sudo apt-get install -y build-essential bc curl git zip ftp gcc-aarch64-linux-gnu gcc-arm-linux-gnueabi libssl-dev lftp zstd wget libfl-dev python2 python3 libarchive-tools device-tree-compiler
 
       - name: "🌟 Clone kernel source => (${{ env.kernelRepo }})"
         working-directory: ./${{ env.kernelDir }}
@@ -158,6 +158,8 @@ jobs:
         run: |
           echo "PATH Variable: $PATH"
           make ${args} CONFIG_DEBUG_SECTION_MISMATCH=y
+          dtc -I dts -O dtb -f ./arch/$ARCH/boot/dts/mediatek/mt6765.dts -o ../$OUT_DIR/arch/$ARCH/boot/Image-dtb
+          cp ../$OUT_DIR/arch/$ARCH/boot/Image-dtb ../$OUT_DIR/arch/$ARCH/boot/dtb
           
       - name: "📦 Package kernel with AnyKernel3"
         working-directory: ./${{ env.kernelDir }}
