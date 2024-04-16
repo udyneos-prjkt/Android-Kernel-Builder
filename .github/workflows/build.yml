@@ -158,7 +158,7 @@ jobs:
         run: |
           echo "PATH Variable: $PATH"
           make ${args} CONFIG_DEBUG_SECTION_MISMATCH=y
-          dtc -I dts -O dtb -f ./arch/$ARCH/boot/dts/mediatek/mt6765.dts -o ../$OUT_DIR/arch/$ARCH/boot/Image-dtb
+          dtc -I dts -O dtb -f arch/$ARCH/boot/dts/mediatek/mt6765.dts -o ../$OUT_DIR/arch/$ARCH/boot/Image-dtb
           cp ../$OUT_DIR/arch/$ARCH/boot/Image-dtb ../$OUT_DIR/arch/$ARCH/boot/dtb
           
       - name: "📦 Package kernel with AnyKernel3"
