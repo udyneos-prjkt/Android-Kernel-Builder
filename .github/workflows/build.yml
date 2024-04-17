@@ -164,10 +164,8 @@ jobs:
         env:
           args: ${{ steps.generate-args.outputs.args }}
         run: |
-          cd arch/$ARCH/
-          make ${args} dtbs
-          make ${args} dtbs_install
-          cd ../../
+          make ${args} --directory=arch/$ARCH/ --makefile=Makefile dtbs
+          make ${args} --directory=arch/$ARCH/ --makefile=Makefile dtbs_install
           mv ../$OUT_DIR/arch/$ARCH/boot/Image-dtb.dtb ../$OUT_DIR/arch/$ARCH/boot/Image-dtb
           cp ../$OUT_DIR/arch/$ARCH/boot/Image-dtb ../$OUT_DIR/arch/$ARCH/boot/dtb
 
