@@ -7,9 +7,7 @@
 English | [中文](./README_cn.md)
 
 ![License](https://img.shields.io/static/v1?label=License&message=BY-NC-SA&logo=creativecommons&color=green)
-![Language](https://img.shields.io/github/languages/top/DogDayAndroid/Android-Kernel-Builder)
-![Issues](https://img.shields.io/github/issues/DogDayAndroid/Android-Kernel-Builder)
-![Pull Requests](https://img.shields.io/github/issues-pr/DogDayAndroid/Android-Kernel-Builder)
+[![Build kernels](https://github.com/1ndev-ui/Android-Kernel-Builder/actions/workflows/build.yml/badge.svg)](https://github.com/1ndev-ui/Android-Kernel-Builder/actions/workflows/build.yml)
 <br>
 
 This Github Action helps you build kernels. It reads multiple kernel sources from a configuration file and builds them using different toolchains. Additionally, it supports patching the kernel with KernelSU and uploading the built kernel image.
