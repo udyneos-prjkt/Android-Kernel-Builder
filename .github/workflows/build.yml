@@ -164,7 +164,7 @@ jobs:
         env:
           args: ${{ steps.generate-args.outputs.args }}
         run: |
-          dtc -I dts -O dtb -o ../$OUT_DIR/arch/$ARCH/boot/Image-dtb.dtb arch/$ARCH/boot/dts/mediatek/mt6765.dts
+          dtc -I dts -O dtb -o ../$OUT_DIR/arch/$ARCH/boot/Image-dtb.dtb arch/$ARCH/boot/dts/mediatek/k65v1_64_bsp.dts
           mv ../$OUT_DIR/arch/$ARCH/boot/Image-dtb.dtb ../$OUT_DIR/arch/$ARCH/boot/Image-dtb
           cp ../$OUT_DIR/arch/$ARCH/boot/Image-dtb ../$OUT_DIR/arch/$ARCH/boot/dtb
 
