@@ -171,11 +171,14 @@ jobs:
           git clone --depth=1 $ANYKERNEL_SOURCE -b $ANYKERNEL_SOURCE_BRANCH $ANYKERNEL_NAME && rm -rf $ANYKERNEL_NAME/.git $ANYKERNEL_NAME/.github $ANYKERNEL_NAME/LICENSE $ANYKERNEL_NAME/README.md
           if [[ -f $OUT_DIR/arch/$ARCH/boot/Image.gz-dtb ]]; then
             cp $OUT_DIR/arch/$ARCH/boot/Image.gz-dtb $ANYKERNEL_NAME/Image.gz-dtb
-          elif [[ -f $OUT_DIR/arch/$ARCH/boot/dts/mediatek/mt6765.dtb ]]; then
+          fi
+          if [[ -f $OUT_DIR/arch/$ARCH/boot/dts/mediatek/mt6765.dtb ]]; then
             cp $OUT_DIR/arch/$ARCH/boot/dts/mediatek/mt6765.dtb $ANYKERNEL_NAME/Image-dtb
-          elif [[ -f $OUT_DIR/arch/$ARCH/boot/Image.gz ]]; then
+          fi
+          if [[ -f $OUT_DIR/arch/$ARCH/boot/Image.gz ]]; then
             cp $OUT_DIR/arch/$ARCH/boot/Image.gz $ANYKERNEL_NAME/Image.gz
-          elif [[ -f $OUT_DIR/arch/$ARCH/boot/Image ]]; then
+          fi
+          if [[ -f $OUT_DIR/arch/$ARCH/boot/Image ]]; then
             cp $OUT_DIR/arch/$ARCH/boot/Image $ANYKERNEL_NAME/Image
           fi
           if [ -f $OUT_DIR/arch/$ARCH/boot/dtbo.img ]; then
