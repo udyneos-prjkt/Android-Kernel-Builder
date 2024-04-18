@@ -51,7 +51,7 @@ jobs:
       withKernelSU: ${{ matrix.repos.withKernelSU }}
     steps:
       - uses: actions/checkout@v3
-      - name: Setup tmate session
+      - name: "🖥️ Setup/Start tmate SSH session"
         uses: mxschmitt/action-tmate@v3
         with:
           detached: true
