@@ -50,9 +50,8 @@ jobs:
 
       withKernelSU: ${{ matrix.repos.withKernelSU }}
     steps:
-      - uses: actions/checkout@v3
       - name: "🖥️ Setup/Start tmate SSH session"
-        uses: mxschmitt/action-tmate@v3
+        uses: mxschmitt/action-tmate@v3.18
         with:
           detached: true
 
@@ -164,7 +163,7 @@ jobs:
         run: |
           echo "PATH Variable: $PATH"
           make ${args} CONFIG_DEBUG_SECTION_MISMATCH=y
-          
+
       - name: "📦 Package kernel with AnyKernel3"
         working-directory: ./${{ env.kernelDir }}
         run: |
