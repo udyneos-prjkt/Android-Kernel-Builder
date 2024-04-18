@@ -159,16 +159,6 @@ jobs:
           echo "PATH Variable: $PATH"
           make ${args} CONFIG_DEBUG_SECTION_MISMATCH=y
           
-      - name: "🌲 Create Device Tree Blob (DTB)"
-        working-directory: ./${{ env.kernelDir }}/${{ env.kernelName }}
-        env:
-          args: ${{ steps.generate-args.outputs.args }}
-        run: |
-          make ${args} --directory=arch/$ARCH/ --makefile=Makefile dtbs
-          make ${args} --directory=arch/$ARCH/ --makefile=Makefile dtbs_install
-          mv ../$OUT_DIR/arch/$ARCH/boot/Image-dtb.dtb ../$OUT_DIR/arch/$ARCH/boot/Image-dtb
-          cp ../$OUT_DIR/arch/$ARCH/boot/Image-dtb ../$OUT_DIR/arch/$ARCH/boot/dtb
-
       - name: "📦 Package kernel with AnyKernel3"
         working-directory: ./${{ env.kernelDir }}
         run: |
