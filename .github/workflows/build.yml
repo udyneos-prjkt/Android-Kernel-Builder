@@ -46,7 +46,7 @@ jobs:
       ANYKERNEL_SOURCE: ${{ matrix.repos.anykernelSource.repo }}
       ANYKERNEL_SOURCE_BRANCH: ${{ matrix.repos.anykernelSource.branch }}
 
-      DEFCONFIG_NAME: ${{ matrix.repos.kernelSource.device }}_defconfig
+      DEFCONFIG_NAME: vendor/${{ matrix.repos.kernelSource.device }}-perf_defconfig
 
       withKernelSU: ${{ matrix.repos.withKernelSU }}
     steps:
